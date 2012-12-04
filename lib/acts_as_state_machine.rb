@@ -239,7 +239,7 @@ module ScottBarron #:nodoc:
         def state(name, opts={})
           state = SupportingClasses::State.new(name, opts)
           #write_inheritable_hash(:states, state.value => state)
-          states[state.value]
+          states[state.value] = state
           define_method("#{state.name}?") { current_state.to_s == state.value }
         end
 
